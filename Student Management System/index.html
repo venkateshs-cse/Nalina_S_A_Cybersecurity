@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Management System</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#f2f6ff;
+}
+
+/* NAVBAR */
+
+.navbar{
+background:#1565c0;
+color:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+}
+
+.navbar ul{
+list-style:none;
+display:flex;
+gap:20px;
+}
+
+.navbar ul li{
+cursor:pointer;
+font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:80px 20px;
+background:linear-gradient(to right,#1e88e5,#42a5f5);
+color:white;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+.hero p{
+font-size:18px;
+margin-top:10px;
+}
+
+/* ELLIPSE BUTTON */
+
+.hero button{
+margin-top:25px;
+padding:15px 45px;
+border:none;
+background:#1565c0;
+color:white;
+font-size:18px;
+border-radius:50px;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.hero button:hover{
+background:#0d47a1;
+transform:scale(1.05);
+}
+
+/* FEATURES */
+
+.features{
+padding:50px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.card h3{
+color:#1565c0;
+}
+
+/* FOOTER */
+
+footer{
+background:#1565c0;
+color:white;
+text-align:center;
+padding:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+<h2>Student Management</h2>
+
+<ul>
+<li>Home</li>
+<li>Students</li>
+<li>Attendance</li>
+<li>Marks</li>
+<li>Login</li>
+</ul>
+</div>
+
+<section class="hero">
+
+<h1>Welcome to Student Management System</h1>
+
+<p>Manage student records, attendance and marks easily in one place.</p>
+
+<button onclick="location.href='login.html'">
+Get Started
+</button>
+
+</section>
+
+<section class="features">
+
+<div class="card">
+<h3>Student Registration</h3>
+<p>Add and manage student information easily.</p>
+</div>
+
+<div class="card">
+<h3>Attendance</h3>
+<p>Track daily student attendance.</p>
+</div>
+
+<div class="card">
+<h3>Marks</h3>
+<p>Store and manage exam marks.</p>
+</div>
+
+<div class="card">
+<h3>Reports</h3>
+<p>Generate academic performance reports.</p>
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Student Management System</p>
+</footer>
+
+</body>
+</html>

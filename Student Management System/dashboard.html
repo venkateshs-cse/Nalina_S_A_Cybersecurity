@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Dashboard</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f2f6ff;
+}
+
+.header{
+background:#1565c0;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+.container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+padding:40px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+text-align:center;
+cursor:pointer;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+background:#e3f2fd;
+}
+
+.card h3{
+color:#1565c0;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+<h2>Student Management Dashboard</h2>
+</div>
+
+<div class="container">
+
+<div class="card" onclick="location.href='addstudent.html'">
+<h3>➕ Add Student</h3>
+<p>Register new student</p>
+</div>
+
+<div class="card">
+<h3>📋 View Students</h3>
+<p>View all student records</p>
+</div>
+
+<div class="card">
+<h3>📅 Attendance</h3>
+<p>Track student attendance</p>
+</div>
+
+<div class="card">
+<h3>📊 Marks</h3>
+<p>Manage exam marks</p>
+</div>
+
+<div class="card">
+<h3>📄 Reports</h3>
+<p>Generate reports</p>
+</div>
+
+</div>
+
+</body>
+</html>
