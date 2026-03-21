@@ -1,76 +1,107 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <title>Add Student</title>
 
 <style>
+body{margin:0;font-family:Arial;background:#f2f6ff;}
 
-body{
-font-family:Arial;
-margin:0;
-background:#f2f6ff;
-}
-
-.header{
+.navbar{
 background:#1565c0;
 color:white;
 padding:15px;
-text-align:center;
+display:flex;
+justify-content:space-between;
 }
 
-.form-box{
+.navbar span{
+margin-right:20px;
+cursor:pointer;
+}
+
+.form{
 background:white;
-width:350px;
-margin:40px auto;
-padding:30px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.2);
+width:450px;
+margin:60px auto;
+padding:40px;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.2);
+text-align:center;
 }
 
 input{
 width:100%;
-padding:10px;
-margin:10px 0;
+padding:12px;
+margin:12px 0;
+border-radius:6px;
 border:1px solid #ccc;
-border-radius:5px;
 }
 
 button{
 width:100%;
-padding:10px;
+padding:12px;
 background:#1565c0;
 color:white;
 border:none;
-border-radius:5px;
-font-size:16px;
+border-radius:6px;
+font-size:18px;
+cursor:pointer;
 }
-
 </style>
-
 </head>
 
 <body>
 
-<div class="header">
+<div class="navbar">
 <h2>Add Student</h2>
+<div>
+<span onclick="location.href='index.html'">Home</span>
+<span onclick="location.href='dashboard.html'">Dashboard</span>
+<span onclick="location.href='addstudent.html'">Add Student</span>
+<span onclick="location.href='viewstudents.html'">View Students</span>
+</div>
 </div>
 
-<div class="form-box">
+<div class="form">
 
-<input type="text" placeholder="Student Name">
+<h2>Add Student</h2>
 
-<input type="text" placeholder="Roll Number">
+<input id="name" placeholder="Student Name">
+<input id="roll" placeholder="Roll Number">
+<input id="dept" placeholder="Department">
 
-<input type="text" placeholder="Department">
-
-<input type="text" placeholder="Phone Number">
-
-<input type="email" placeholder="Email">
-
-<button>Add Student</button>
+<button onclick="add()">Add Student</button>
 
 </div>
+
+<script>
+function add(){
+
+let name = document.getElementById("name").value;
+let roll = document.getElementById("roll").value;
+let dept = document.getElementById("dept").value;
+
+if(name=="" || roll=="" || dept==""){
+alert("Please fill all fields ❗");
+return;
+}
+
+let student = {name, roll, dept};
+
+let data = JSON.parse(localStorage.getItem("students")) || [];
+
+data.push(student);
+
+localStorage.setItem("students", JSON.stringify(data));
+
+alert("Student Added Successfully ✅");
+
+setTimeout(()=>{
+location.href="viewstudents.html";
+},1000);
+
+}
+</script>
 
 </body>
 </html>
