@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f2f6ff;
+}
+
+/* NAVBAR */
+
+.navbar{
+background:#1565c0;
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.navbar span{
+margin-right:25px;
+cursor:pointer;
+font-size:16px;
+}
+
+.navbar span:hover{
+text-decoration:underline;
+}
+
+/* HEADER */
+
+.header{
+text-align:center;
+padding:30px;
+font-size:28px;
+color:#1565c0;
+font-weight:bold;
+}
+
+/* GRID */
+
+.container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+padding:40px 80px;
+}
+
+/* CARD */
+
+.card{
+background:white;
+padding:50px 30px;
+text-align:center;
+border-radius:15px;
+box-shadow:0 6px 15px rgba(0,0,0,0.2);
+cursor:pointer;
+transition:0.3s;
+font-size:20px;
+}
+
+.card:hover{
+transform:translateY(-8px) scale(1.03);
+background:#e3f2fd;
+}
+
+.card h3{
+font-size:22px;
+color:#1565c0;
+margin-bottom:10px;
+}
+
+.card p{
+font-size:16px;
+color:#555;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+<h2>Dashboard</h2>
+
+<div>
+<span onclick="location.href='index.html'">Home</span>
+<span onclick="location.href='dashboard.html'">Dashboard</span>
+<span onclick="location.href='addstudent.html'">Add Student</span>
+<span onclick="location.href='viewstudents.html'">View Students</span>
+</div>
+</div>
+
+<!-- TITLE -->
+
+<div class="header">
+Student Management Dashboard
+</div>
+
+<!-- CARDS -->
+
+<div class="container">
+
+<div class="card" onclick="location.href='addstudent.html'">
+<h3>➕ Add Student</h3>
+<p>Register new student details</p>
+</div>
+
+<div class="card" onclick="location.href='viewstudents.html'">
+<h3>📋 View Students</h3>
+<p>View all student records</p>
+</div>
+
+<div class="card" onclick="location.href='attendance.html'">
+<h3>📅 Attendance</h3>
+<p>Track student attendance</p>
+</div>
+
+<div class="card" onclick="location.href='marks.html'">
+<h3>📊 Marks</h3>
+<p>Manage exam marks</p>
+</div>
+
+<div class="card" onclick="location.href='attendancereport.html'">
+<h3>📄 Attendance Report</h3>
+<p>View attendance summary</p>
+</div>
+
+</div>
+
+</body>
+</html>

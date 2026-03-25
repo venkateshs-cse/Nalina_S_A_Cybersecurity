@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#f2f6ff;}
+
+.navbar{
+background:#1565c0;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+}
+
+.navbar span{
+margin-right:20px;
+cursor:pointer;
+}
+
+.navbar span:hover{
+text-decoration:underline;
+}
+
+.hero{
+text-align:center;
+padding:80px;
+background:linear-gradient(to right,#1e88e5,#42a5f5);
+color:white;
+}
+
+.hero button{
+padding:15px 40px;
+background:#1565c0;
+color:white;
+border:none;
+border-radius:50px;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+<h2>Student Management</h2>
+<div>
+<span onclick="location.href='index.html'">Home</span>
+<span onclick="location.href='dashboard.html'">Dashboard</span>
+<span onclick="location.href='addstudent.html'">Add Student</span>
+<span onclick="location.href='viewstudents.html'">View Students</span>
+</div>
+</div>
+
+<div class="hero">
+<h1>Welcome to Student Management System</h1>
+<p>Manage student records easily</p>
+<button onclick="location.href='login.html'">Get Started</button>
+</div>
+
+</body>
+</html>
