@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>View Students</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#f2f6ff;}
+
+.navbar{
+background:#1565c0;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+}
+
+.navbar span{
+margin-right:20px;
+cursor:pointer;
+}
+
+.search-box{
+text-align:center;
+margin:20px;
+}
+
+input{
+padding:10px;
+width:250px;
+}
+
+table{
+width:80%;
+margin:20px auto;
+background:white;
+border-collapse:collapse;
+}
+
+th,td{
+padding:10px;
+border:1px solid #ccc;
+text-align:center;
+}
+
+th{background:#1565c0;color:white;}
+
+button{
+padding:5px 10px;
+border:none;
+background:red;
+color:white;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+<h2>View Students</h2>
+<div>
+<span onclick="location.href='index.html'">Home</span>
+<span onclick="location.href='dashboard.html'">Dashboard</span>
+<span onclick="location.href='addstudent.html'">Add Student</span>
+<span onclick="location.href='viewstudents.html'">View Students</span>
+</div>
+</div>
+
+<div class="search-box">
+<input type="text" id="search" placeholder="Search by name..." onkeyup="searchStudent()">
+</div>
+
+<table id="table"></table>
+
+<script>
+
+let students = JSON.parse(localStorage.getItem("students")) || [];
+let table = document.getElementById("table");
+
+function loadTable(data){
+table.innerHTML = `
+<tr>
+<th>Name</th>
+<th>Roll</th>
+<th>Dept</th>
+<th>Action</th>
+</tr>
+`;
+
+data.forEach((s,index)=>{
+let row = table.insertRow();
+
+row.insertCell(0).innerHTML = s.name;
+row.insertCell(1).innerHTML = s.roll;
+row.insertCell(2).innerHTML = s.dept;
+
+row.insertCell(3).innerHTML =
+`<button onclick="deleteStudent(${index})">Delete</button>`;
+});
+}
+
+loadTable(students);
+
+function searchStudent(){
+let value = document.getElementById("search").value.toLowerCase();
+
+let filtered = students.filter(s =>
+s.name.toLowerCase().includes(value)
+);
+
+loadTable(filtered);
+}
+
+function deleteStudent(index){
+
+students.splice(index,1);
+
+localStorage.setItem("students", JSON.stringify(students));
+
+loadTable(students);
+}
+
+</script>
+
+</body>
+</html>

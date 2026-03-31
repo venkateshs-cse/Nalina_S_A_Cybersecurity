@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Attendance</title>
+
+<style>
+body{font-family:Arial;margin:0;background:#f2f6ff;}
+
+.navbar{
+background:#1565c0;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+}
+
+.navbar span{
+margin-right:20px;
+cursor:pointer;
+}
+
+table{
+width:80%;
+margin:30px auto;
+background:white;
+border-collapse:collapse;
+}
+
+th,td{
+padding:12px;
+border:1px solid #ccc;
+text-align:center;
+}
+
+th{background:#1565c0;color:white;}
+
+.btn{
+padding:8px 15px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+color:white;
+font-weight:bold;
+}
+
+.present{background:green;}
+.absent{background:red;}
+
+button{
+display:block;
+margin:20px auto;
+padding:10px 20px;
+background:#1565c0;
+color:white;
+border:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+<h2>Attendance</h2>
+<div>
+<span onclick="location.href='index.html'">Home</span>
+<span onclick="location.href='dashboard.html'">Dashboard</span>
+</div>
+</div>
+
+<h2 style="text-align:center;">Mark Attendance</h2>
+
+<table id="table">
+<tr>
+<th>Name</th>
+<th>Roll</th>
+<th>Status</th>
+</tr>
+</table>
+
+<button onclick="save()">Save Attendance</button>
+
+<script>
+
+let students = JSON.parse(localStorage.getItem("students")) || [];
+let table = document.getElementById("table");
+
+let attendanceData = [];
+
+students.forEach((s,index)=>{
+
+let row = table.insertRow();
+
+row.insertCell(0).innerHTML = s.name;
+row.insertCell(1).innerHTML = s.roll;
+
+row.insertCell(2).innerHTML = `
+<div id="box${index}">
+<button class="btn present" onclick="mark(${index}, 'Present')">Present</button>
+<button class="btn absent" onclick="mark(${index}, 'Absent')">Absent</button>
+</div>
+`;
+
+attendanceData[index] = {name:s.name, roll:s.roll, status:""};
+});
+
+function mark(index, status){
+
+let box = document.getElementById("box"+index);
+
+if(status === "Present"){
+box.innerHTML = `<button class="btn present">Present ✅</button>`;
+}else{
+box.innerHTML = `<button class="btn absent">Absent ❌</button>`;
+}
+
+attendanceData[index].status = status;
+}
+
+function save(){
+
+if(attendanceData.some(s => s.status=="")){
+alert("Mark all students ❗");
+return;
+}
+
+localStorage.setItem("attendance", JSON.stringify(attendanceData));
+
+alert("Attendance Saved ✅");
+}
+
+</script>
+
+</body>
+</html>
